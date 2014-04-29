@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% if id == 'go' %}
+	<h2>Drive forward for {{ seconds }} feet</h2>
+	<p>	forward A<br>
+		forward B<br>
+		pause {{ pause }}<br>
+		halt A halt B
+	</p>
+         
+            
+{% elif id == 'square' %}
+	
+	<h2>Drive forward for {{ seconds }} feet</h2><br><br>
+	<p>	symbol counter = b1<br>
+	main:<br>
+		; Set Motor Speed Low<br>
+		output C.5 <br><br>
+		
+		doStuff:<br>
+		for counter = 1 to 4<br><br>
+			
+			gosub driveAndTurn<br><br>
+			
+		next counter<br>
+		end<br><br>
+
+
+		
+	driveAndTurn:<br>
+		; Drive forward<br>
+		forward A<br>
+		forward B<br>
+		pause {{ pause }}<br><br>
+		
+		; Turn right<br>
+		halt A<br>
+		halt B<br>
+		forward A<br>
+		pause 1000<br>
+		halt A<br><br>
+		
+		return
+	</p>
+{% endif %}
+
+</html>
